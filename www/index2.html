@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<title> editing application </title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<!--css style for this page -->
+<link rel="stylesheet" href="css/web.css" type="text/css" />
+</head>
+<script src="phonegap.js"> </script>
+<body id="kee">
+<div id="dash">
+<!--this div for header with logo -->
+<div class="headlogo" style="border-bottom:3px solid #eee;height:60px;background-color:white;display:none"><img src="gallery/logo.jpeg" width="200" height="60" /></div>
+<!--this div for main screen -->
+<div id="main" style="display:none">
+<br> <br> <br>
+<div align="middle">
+<div onclick="kill()" style="background:linear-gradient(to left, #00efd1, #00acea);width:200px;height:100px;border-radius:5px"><br><br><font size="5" color="white">Edit Image</font></div></div> <br> <br>
+<div align="middle">
+<div  onclick="bill()" style="background:linear-gradient(to left, #00efd1, #00acea);width:200px;height:100px;border-radius:5px"><br><br><font size="5" color="white"> VFX </font></div></div> <br> <br>
+<div align="middle">
+<div  onclick="me()" style="background:linear-gradient(to left, #00efd1, #00acea);width:200px;height:100px;border-radius:5px"><br><br><font size="5" color="white"> Video Converter</font></div></div> <br> <br>
+<div  onclick="oi()" style="position:absolute;bottom:0;right:0;width:80px:height:5px;background:linear-gradient(to left, #A9A9A9, grey, #B0B0B0);border-top-right-radius:5px;border-top-left-radius:5px"><font size="5" color="white">&nbsp;&nbsp;&#9874;&nbsp;&nbsp;About&nbsp;&nbsp;</font></div>
+</div>
+<!--this div for about screen -->
+<div id="after" style="display:none">
+<br> <br> <br>
+<div align="middle">
+<div onclick="ke()" style="background:linear-gradient(to left, #00efd1, #00acea);width:40px;height:35px;border-top-left-radius:5px;border-top-right-radius:5px"><font size="5" color="white">&#10150;</font></div></div> <br> <br>
+<div align="middle"><div style="background-color:black;border:1px solid black;width:320px;height:100px;border-top-right-radius:5px;border-top-left-radius:5px">
+<h1 align="middle"> <font size="4" color="red"> About </font> </h1>
+<p align="middle"> <font size="3" color="red"> This app is basic version and the app is 100% free and no ads </font> </p>
+</div></div>
+<div align="middle"><div style="background-color:black;border:1px solid black;width:320px;height:400px;border-bottom-right-radius:5px;border-bottom-left-radius:5px">
+<h1 align="middle"> <font size="4" color="green"> Help </font> </h1>
+<p align="middle"> <font size="3" color="green">This app has user friendly settings and the application features are <br> listed below <br> <br>
+ For image editing : <br>crop,rotate,filter,frame,brightness<br>contrast,text,sticker <br> <br>
+ For vfx editing : <br>you can change the background of image having<br> yellow color background only <br> <br>
+ For video converter : <br>you can convert image into video by using some special effect <br> <br>
+ </font> </p><br>
+</div></div>
+ <br> <br>
+</div>
+</div>
+</body>
+<!--script for this  page -->
+<script src="js/web.js"></script>
+</html>
