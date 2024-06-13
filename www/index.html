@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<title> editing application </title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<!-- loading screen styles -->
+<style>
+*{   
+    padding: 0;  
+    margin: 0; 
+}
+html, body { 
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+	background-image: url(gallery/d.jpeg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-color:#464646;
+}
+.loader { /* for loading screen style */
+  border: 8px solid #f3f3f3; 
+  border-top: 8px solid #3498db; 
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+  margin-left: -10px;
+  margin-left: -10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+@keyframes spin { /* for loading screen style */
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+} 
+</style>
+<script src="phonegap.js"> </script>
+</head>
+<body id="kee" onload="my()">
+<!--this div for loading screen -->
+<div style="display:none" id="geo" class="loader"> </div>
+</body>
+<!-- loading screen script -->
+<script>
+function my() {
+	setTimeout(function () {
+	document.getElementById("geo").style.display="block";
+	start();
+	}, 1000)
+}
+function start() {
+    setTimeout(function () {
+    window.location="index2.html"; 
+	}, 2000)
+}
+</script>
+</html>

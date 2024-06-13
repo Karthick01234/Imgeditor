@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+<title> editing application </title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<!-- css style for this page -->
+<link rel="stylesheet" href="main/itv/web.css" type="text/css" />
+<script src="phonegap.js"></script>
+</head>
+<body>
+<!--this div for header with logo and logout -->
+<div style="border-bottom:3px solid #eee;height:60px;background-color:white"><img src="main/itv/logo.jpeg" onclick="logout()" width="200" height="60" /><img onclick="reloadlogout()" align="right" src="main/itv/logout.png" style="width:30px;height:40px;" /></div>
+<br>
+<!--this outputs are needed for background working for this page -->
+<output id="maz" style="display:none">1</output>
+<output id="rit" style="display:none"></output>
+<output id="gama" style="display:none"></output>
+<output id="out" style="display:none">0</output>
+<!--this div for get input images from user -->
+<div id="inpimg"> 
+<div align="middle" onclick="upload()"><div id="round">
+<br>
+<svg id="bold" enable-background="new 0 0 24 24" height="45" viewBox="0 0 24 24" width="45" xmlns="http://www.w3.org/2000/svg"><path d="m13.25 23h-2.5c-.689 0-1.25-.561-1.25-1.25v-4.25h-2.25c-.3 0-.571-.179-.689-.454s-.061-.595.145-.813l4.75-5c.283-.298.805-.298 1.088 0l4.75 5c.206.217.264.537.146.813s-.39.454-.69.454h-2.25v4.25c0 .689-.561 1.25-1.25 1.25z"/><path d="m18.673 4.927c-1.312-2.399-3.884-3.927-6.673-3.927-3.545 0-6.62 2.465-7.397 5.829-2.584.272-4.603 2.442-4.603 5.071 0 2.595 1.976 4.72 4.512 5.036-.051-.753.204-1.51.743-2.078l4.751-5.001c1.023-1.076 2.966-1.076 3.987 0l4.751 5c.502.529.757 1.221.75 1.921 2.593-.708 4.506-3.057 4.506-5.845 0-3.066-2.307-5.625-5.327-6.006z"/></svg>
+</div> </div>
+<input style="display:none" type="file" id="hydra" accept="image/*" />
+<br> <br>
+<p align="middle"><font id="paragraph" size="3" color="blue"> upload a image more than four </font></p> <br> <br>
+<p id="para"> 
+<img src="main/itv/logo.jpeg" id="a0" style="display:none;width:100px;height;100px;padding:5px" />
+<img src="main/itv/d.jpeg" id="a1" style="display:none;width:100px;height;100px;padding:5px" />
+</p> <br>
+<svg onclick="post()" id="netoimg" style="display:none;float:right" enable-background="new 0 0 24 24" height="38" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg"><path d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12 12-5.383 12-12-5.383-12-12-12z" fill="#2196f3"/><path d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12z" fill="#1d83d4"/><path d="m12 18.25v-3.25h-5.75c-.689 0-1.25-.561-1.25-1.25v-3.5c0-.689.561-1.25 1.25-1.25h5.75v-3.25c0-.66.795-.999 1.27-.541l6.5 6.25c.147.142.23.337.23.541s-.083.399-.23.541l-6.5 6.25c-.475.456-1.27.12-1.27-.541z" fill="#fff"/><path d="m5 12h15c0 .204-.083.399-.23.541l-6.5 6.25c-.15.144-.334.209-.514.209-.385 0-.756-.298-.756-.75v-3.25h-5.75c-.689 0-1.25-.561-1.25-1.25z" fill="#dedede"/></svg>
+</div>
+<!--this div for editing a get input images-->
+<div id="itvdash" style="display:none">
+<canvas id="itvstart" width="320" height="240" style="background-color:black"></canvas> 
+<video style="display:none" id="kart" width="320px" height="240px" controls> </video>
+<br> <br> <br>
+<div align="middle"><div id="dove" style="display:none;background:linear-gradient(to left, #00efd1, #00acea);width:40px;height:35px;border-top-left-radius:5px;border-top-right-radius:5px;"><font size="5" color="white">&#128229;</font></div></div>
+<!--this div for adding styles and effects for editing -->
+<div id="style">
+<p><font id="paramac" size="3" color="blue"> Select style & effect for create video : </font></p>
+<br>
+<select id="rules" style="float:left;width:80px;height:40px;border:1px solid black;border-radius:5px;outline:none;overflow:auto">
+<option value="select"> Select </option>
+<option value="slide"> Slide </option>
+<option value="normal"> Normal </option>
+<option value="zoom"> Zoom </option>
+<option value="flip"> Flip  </option>
+</select>
+<select id="special" style="float:right;width:80px;height:40px;border:1px solid black;border-radius:5px;outline:none;overflow:auto">
+<option value="select"> Select </option>
+<option value="none"> none </option>
+<option value="saturate"> saturate </option>
+<option value="opacity"> opacity </option>
+<option value="blur"> blur </option>
+<option value="sepia"> sepia  </option>
+<option value="grayscale"> grayscale  </option>
+<option value="invert"> invert  </option>
+<option value="hue-rotate"> hue-rotate  </option>
+<option value="brightness"> brightness  </option>
+<option value="contrast"> contrast  </option>
+</select>
+<input style="display:none" type="range" id="bright" class="cladder" />
+<svg onclick="bigil()" style="display:none" id="color" enable-background="new 0 0 24 24" height="38" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg"><path d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12 12-5.383 12-12-5.383-12-12-12z" fill="#2196f3"/><path d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12z" fill="#1d83d4"/><path d="m12 18.25v-3.25h-5.75c-.689 0-1.25-.561-1.25-1.25v-3.5c0-.689.561-1.25 1.25-1.25h5.75v-3.25c0-.66.795-.999 1.27-.541l6.5 6.25c.147.142.23.337.23.541s-.083.399-.23.541l-6.5 6.25c-.475.456-1.27.12-1.27-.541z" fill="#fff"/><path d="m5 12h15c0 .204-.083.399-.23.541l-6.5 6.25c-.15.144-.334.209-.514.209-.385 0-.756-.298-.756-.75v-3.25h-5.75c-.689 0-1.25-.561-1.25-1.25z" fill="#dedede"/></svg>
+</div>
+<!--this div for applying audio for images -->
+<div id="audio" style="display:none">
+<p><font id="graph" size="3" color="blue"> Upload audio file : </font></p>
+<br>
+<svg onclick="mass()" id="duck" enable-background="new 0 0 24 24" height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg"><path d="m13.25 23h-2.5c-.689 0-1.25-.561-1.25-1.25v-4.25h-2.25c-.3 0-.571-.179-.689-.454s-.061-.595.145-.813l4.75-5c.283-.298.805-.298 1.088 0l4.75 5c.206.217.264.537.146.813s-.39.454-.69.454h-2.25v4.25c0 .689-.561 1.25-1.25 1.25z"/><path d="m18.673 4.927c-1.312-2.399-3.884-3.927-6.673-3.927-3.545 0-6.62 2.465-7.397 5.829-2.584.272-4.603 2.442-4.603 5.071 0 2.595 1.976 4.72 4.512 5.036-.051-.753.204-1.51.743-2.078l4.751-5.001c1.023-1.076 2.966-1.076 3.987 0l4.751 5c.502.529.757 1.221.75 1.921 2.593-.708 4.506-3.057 4.506-5.845 0-3.066-2.307-5.625-5.327-6.006z"/></svg>
+<input style="display:none" type="file" id="kck" accept="audio/*" multiple />
+<div id="bulpu" style="display:none">
+<audio id="ae" controls > </audio> <br> <br>
+<input type="range" id="rag" class="slider" />
+</div>
+<svg onclick="govindha()" style="display:none;float:right" version="1.1" id="pizza" height="38" width="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 271.953 271.953" style="enable-background:new 0 0 271.953 271.953;" xml:space="preserve">
+<g>
+	<g>
+		<path style="fill:#010002;" d="M135.977,271.953c75.097,0,135.977-60.879,135.977-135.977S211.074,0,135.977,0S0,60.879,0,135.977
+			S60.879,271.953,135.977,271.953z M250.197,135.977c0,62.979-51.241,114.22-114.22,114.22s-114.22-51.241-114.22-114.22
+			s51.241-114.22,114.22-114.22S250.197,72.998,250.197,135.977z"/>
+		<path style="fill:#010002;" d="M112.295,205.031c2.692,1.115,5.434,1.659,8.235,1.659c5.662,0,11.183-2.208,15.344-6.375
+			l48.93-48.952c8.496-8.496,8.485-22.273-0.011-30.769l-48.957-48.952c-4.161-4.161-9.73-6.375-15.393-6.375
+			c-2.801,0-5.461,0.544-8.153,1.659c-8.126,3.367-13.255,11.297-13.255,20.097v97.903
+			C99.034,193.729,104.164,201.664,112.295,205.031z M120.791,88.613v-1.588l48.952,48.952l-48.952,48.952V88.613z"/>
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+</div>
+</div>
+</body>
+<!-- script for this page -->
+<script src="main/itv/imvid.js"></script>
+</html>

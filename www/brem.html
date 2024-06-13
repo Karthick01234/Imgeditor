@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<title> editing application </title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<link rel="stylesheet" href="main/vfx/bg.css" type="text/css" />
+<script src="main/vfx/html2canvas.js"></script>
+<script src="phonegap.js"></script>
+</head>
+<body>
+<div style="border-bottom:3px solid #eee;height:60px;background-color:white"><img src="main/vfx/logo.jpeg" onclick="logout()" width="200" height="60" /><img onclick="reloadlogout()" align="right" src="main/vfx/logout.png" style="width:30px;height:40px;" /></div>
+<input style="display:none" type="file" id="hydra" accept="image/*" />
+<output id="x" style="display:none">draw</output>
+<output id="output" style="display:none"></output>
+<div id="inpimg"> 
+<div align="middle" onclick="upload()"><div id="round">
+<br>
+<svg id="bold" enable-background="new 0 0 24 24" height="45" viewBox="0 0 24 24" width="45" xmlns="http://www.w3.org/2000/svg"><path d="m13.25 23h-2.5c-.689 0-1.25-.561-1.25-1.25v-4.25h-2.25c-.3 0-.571-.179-.689-.454s-.061-.595.145-.813l4.75-5c.283-.298.805-.298 1.088 0l4.75 5c.206.217.264.537.146.813s-.39.454-.69.454h-2.25v4.25c0 .689-.561 1.25-1.25 1.25z"/><path d="m18.673 4.927c-1.312-2.399-3.884-3.927-6.673-3.927-3.545 0-6.62 2.465-7.397 5.829-2.584.272-4.603 2.442-4.603 5.071 0 2.595 1.976 4.72 4.512 5.036-.051-.753.204-1.51.743-2.078l4.751-5.001c1.023-1.076 2.966-1.076 3.987 0l4.751 5c.502.529.757 1.221.75 1.921 2.593-.708 4.506-3.057 4.506-5.845 0-3.066-2.307-5.625-5.327-6.006z"/></svg>
+</div> </div>
+<br> <br>
+<p align="middle"><font id="paragraph" size="3" color="blue"> image background remover </font></p>
+</div>
+<div style="display:none" align="middle" id="backvfx"> 
+<div align="middle" onclick="backupload()"><div id="round">
+<br>
+<svg id="bold" enable-background="new 0 0 24 24" height="45" viewBox="0 0 24 24" width="45" xmlns="http://www.w3.org/2000/svg"><path d="m13.25 23h-2.5c-.689 0-1.25-.561-1.25-1.25v-4.25h-2.25c-.3 0-.571-.179-.689-.454s-.061-.595.145-.813l4.75-5c.283-.298.805-.298 1.088 0l4.75 5c.206.217.264.537.146.813s-.39.454-.69.454h-2.25v4.25c0 .689-.561 1.25-1.25 1.25z"/><path d="m18.673 4.927c-1.312-2.399-3.884-3.927-6.673-3.927-3.545 0-6.62 2.465-7.397 5.829-2.584.272-4.603 2.442-4.603 5.071 0 2.595 1.976 4.72 4.512 5.036-.051-.753.204-1.51.743-2.078l4.751-5.001c1.023-1.076 2.966-1.076 3.987 0l4.751 5c.502.529.757 1.221.75 1.921 2.593-.708 4.506-3.057 4.506-5.845 0-3.066-2.307-5.625-5.327-6.006z"/></svg>
+</div> </div><br> <br> 
+<p><font id="paragraph" size="3" color="blue">background image for your image background </font> </p>
+</div>
+<input style="display:none" type="file" id="backhydra" accept="image/*" required />
+<div id="dashboard" style="display:none">
+<canvas id="vas" width="320" height ="240"></canvas><br> <br>
+<div id="xy">
+<img onclick="delet()" id="delete" src="main/vfx/eraser.svg" style="float:left;width:40px;height:40px;" />
+<img onclick="edit()" id="edit" src="brush.svg" style="display:none;float:left;width:40px;height:40px;" />
+<svg onclick="hi()" style="float:right" enable-background="new 0 0 24 24" height="38" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg"><path d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12 12-5.383 12-12-5.383-12-12-12z" fill="#2196f3"/><path d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12z" fill="#1d83d4"/><path d="m12 18.25v-3.25h-5.75c-.689 0-1.25-.561-1.25-1.25v-3.5c0-.689.561-1.25 1.25-1.25h5.75v-3.25c0-.66.795-.999 1.27-.541l6.5 6.25c.147.142.23.337.23.541s-.083.399-.23.541l-6.5 6.25c-.475.456-1.27.12-1.27-.541z" fill="#fff"/><path d="m5 12h15c0 .204-.083.399-.23.541l-6.5 6.25c-.15.144-.334.209-.514.209-.385 0-.756-.298-.756-.75v-3.25h-5.75c-.689 0-1.25-.561-1.25-1.25z" fill="#dedede"/></svg>
+<br><br><br>
+</div>
+<p align="left" id="xy1"><font id="graph" size="3" color="blue"> Adjust drawing line width : </font></p> <br>
+<div align="left" id="xy2">
+<input type="range" id="rag" class="slider" min="0" max="60" step="2" value="10" /></div>
+<div id="xy3" style="display:none;float:left;">
+<div align="middle" onclick="kill()" style="background:linear-gradient(to left, #00efd1, #00acea);width:100px;height:65px;border-radius:5px"><br><font size="5" color="white">Sticker</font></div> </div>
+<div id="xy4" style="display:none;float:right;">
+<div align="middle" onclick="bill()" style="background:linear-gradient(to left, #00efd1, #00acea);width:100px;height:65px;border-radius:5px"><br><font size="5" color="white"> Vfx </font></div> </div>
+<div align="middle"><div id="dove" onclick="download()" style="display:none;background:linear-gradient(to left, #90EE90, #00FA9A, #00FF7F);width:40px;height:35px;border-top-left-radius:5px;border-top-right-radius:5px;"><font size="5" color="white">&#128229;</font></div></div>
+</div>
+<script src="main/vfx/bg.js"></script>
+</body>
+</html>
